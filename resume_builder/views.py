@@ -9,6 +9,12 @@ def home(request):
 
 def create(request):
     context = {
-        'title': 'Create'
+        'title': 'Create A Resume'
     }
     return render(request, 'resume_builder/create.html', context)
+
+def about(request):
+    context = {
+        'title': 'About'
+    }
+    return render(request, 'resume_builder/about.html', context)
