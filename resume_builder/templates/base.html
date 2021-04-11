@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'resume_builder/style.css' %}">
     {% if title %}
         <title>Resumo - {{ title }}</title>
     {% else %}
@@ -13,8 +15,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-md">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid-md container-lg">
                 <a class="navbar-brand" href="{% url 'home' %}">Resumo</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
@@ -26,33 +28,46 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'create' %}">Create Resume</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Resumes</a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'create' %}">Create Resume</a>
+                            </li>
+                        {% endif %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Account
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Register</a>
-                                <a class="dropdown-item" href="#">Sign In</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">My Account</a>
+                                {% if not user.is_authenticated %}
+                                    <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                                    <a class="dropdown-item" href="{% url 'sign-in' %}">Sign In</a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{% url 'sign-out' %}">Log Out</a>
+                                    <a class="dropdown-item" href="#">My Account</a>
+                                {% endif %}
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main class="container-lg">
+    <main class="container-lg app">
+        {% if title %}
+            <h2 class="page-title">
+                {{ title }}
+            </h2>
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>

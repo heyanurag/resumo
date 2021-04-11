@@ -1,0 +1,66 @@
+body {
+    background-color: #f4f4f4;
+    color: #4f4f4f;
+}
+
+.app {
+    margin-top: 25px;
+}
+
+.app h2.page-title {
+    font-size: 1.5rem;
+}
+
+nav.navbar {
+    padding: 0;
+}
+
+nav.navbar .navbar-nav .nav-item {
+    padding: 5px 7.5px;
+}
+
+nav.navbar .navbar-nav .nav-item .nav-link {
+    color: #f4f4f4;
+}
+
+nav.navbar .navbar-nav .nav-item:hover {
+    background-color: #fff;
+}
+
+nav.navbar .navbar-nav .nav-item:hover .nav-link {
+    color: #212529;
+}
+
+.app h2.page-title {
+    color: #212529;
+    width: max-content;
+    padding: 7.5px 15px 11px;
+    margin: 10px auto;
+    border-bottom: 2px solid #212529;
+}
+
+.app .register, .app .login {
+    margin: 25px auto;
+    padding: 25px 40px;
+    max-width: 600px;
+    background-color: #fff;
+    font-size: 0.9rem;
+}
+
+.app form label {
+    margin-top: 15px;
+}
+
+.app form span.asteriskField {
+    color: red;
+    margin-left: 3px;
+}
+
+.btn-outline-submit {
+    border: 1px solid #212529;
+}
+
+.btn-outline-submit:hover {
+    background-color: #212529;
+    color: #fff;
+}
