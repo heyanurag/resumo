@@ -1,19 +1,17 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h2 class="page-title">Sign In</h2>
-    <div class="login shadow">
+    <div class="create-resume shadow-sm">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
+                <h3>Educational Details</h3>
+                <p class="instruction">Your Latest Educational Qualification</p>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button type="submit" class="btn btn-outline-theme">Sign In</button>
+                <button type="submit" class="btn btn-outline-theme">Submit</button>
             </div>
         </form>
-        <div class="mt-3 pt-2 border-top">
-            <p class="text-muted">Don't have an Account? <a href="{% url 'register' %}" class="ml-2">Register</a></p>
-        </div>
     </div>
 {% endblock content %}

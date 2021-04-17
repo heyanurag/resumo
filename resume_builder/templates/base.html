@@ -25,31 +25,49 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        
+                        {% url 'home' as url %}
+                        <li class="nav-item {% if request.path == url %} active {% endif %}">
+                            <a class="nav-link" href="{{ url }}">Home</a>
                         </li>
+                        
                         {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'create' %}">Create Resume</a>
+                            {% url 'create' as url %}
+                            <li class="nav-item {% if request.path == url %} active {% endif %}">
+                                <a class="nav-link" href="{{ url }}">Create Resume</a>
                             </li>
                         {% endif %}
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Account
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 {% if not user.is_authenticated %}
-                                    <a class="dropdown-item" href="{% url 'register' %}">Register</a>
-                                    <a class="dropdown-item" href="{% url 'sign-in' %}">Sign In</a>
+                                    
+                                    {% url 'register' as url %}
+                                    <a class="dropdown-item {% if request.path == url %} active {% endif %}" href="{{ url }}">Register</a>
+                                    
+                                    {% url 'sign-in' as url %}
+                                    <a class="dropdown-item {% if request.path == url %} active {% endif %}" href="{{ url }}">Sign In</a>
+                                
                                 {% else %}
-                                    <a class="dropdown-item" href="{% url 'sign-out' %}">Log Out</a>
-                                    <a class="dropdown-item" href="#">My Account</a>
+                                    
+                                    {% url 'sign-out' as url %}
+                                    <a class="dropdown-item {% if request.path == url %} active {% endif %}" href="{{ url }}">Log Out</a>
+                                    
+                                    {% url 'account' as url %}
+                                    <a class="dropdown-item {% if request.path == url %} active {% endif %}" href="{{ url }}">My Account</a>
+                                
                                 {% endif %}
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">About</a>
+                        
+                        {% url 'about' as url %}
+                        <li class="nav-item {% if request.path == url %} active {% endif %}">
+                            <a class="nav-link" href="{{ url }}">About</a>
                         </li>
+                        
                     </ul>
                 </div>
             </div>

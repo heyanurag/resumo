@@ -23,12 +23,20 @@ nav.navbar .navbar-nav .nav-item .nav-link {
     color: #f4f4f4;
 }
 
-nav.navbar .navbar-nav .nav-item:hover {
+nav.navbar .navbar-nav .nav-item.active {
     background-color: #fff;
 }
 
-nav.navbar .navbar-nav .nav-item:hover .nav-link {
+nav.navbar .navbar-nav .nav-item.active .nav-link {
     color: #212529;
+}
+
+nav.navbar .navbar-nav .nav-item:hover {
+    background-color: #f1f1f1;
+}
+
+nav.navbar .navbar-nav .nav-item:hover .nav-link {
+    color: #4f4f4f;
 }
 
 .app h2.page-title {
@@ -47,7 +55,7 @@ nav.navbar .navbar-nav .nav-item:hover .nav-link {
     font-size: 0.9rem;
 }
 
-.app form label {
+.app .register form label, .app .login form label {
     margin-top: 15px;
 }
 
@@ -56,11 +64,93 @@ nav.navbar .navbar-nav .nav-item:hover .nav-link {
     margin-left: 3px;
 }
 
-.btn-outline-submit {
+.btn-outline-theme {
     border: 1px solid #212529;
 }
 
-.btn-outline-submit:hover {
+.btn-outline-theme:hover {
     background-color: #212529;
     color: #fff;
+}
+
+.app .create-resume {
+    padding: 25px;
+    background-color: #fff;
+    color: #212529
+}
+
+.app form .instruction {
+    margin: 20px 0 10px;
+    color: red;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#resume {
+    background-color: #f4f4f4;
+}
+
+#resume section {
+    padding: 25px 20px;
+}
+
+#resume .left {
+    padding-top: 35px;
+    background-color: #171820;
+    color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+}
+
+#resume .right {
+    color: #171820;
+}
+
+.personal svg {
+    width: 17.5px;
+    height: 17.5px;
+}
+
+.personal h2 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.professional h1 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #171820;
+}
+
+.professional h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #171820;
+}
+
+.professional h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    padding-top: 5px;
+}
+
+.professional p, .professional ul, .professional ol {
+    padding: 5px 0;
+}
+
+.professional ul, .professional ol {
+    padding-left: 20px;
+    list-style: square;
+}
+
+.profile.card {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 25px;
+}
+
+@media print {
+    .noPrint {
+        display: none;
+    }
 }

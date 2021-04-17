@@ -1,3 +1,32 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
+    <div class="content my-5">
+        <div class="card shadow p-3 mx-2 my-4">
+            <h3 class="card-title">Education</h3>
+            <div class="card-body">
+                <a href="{% url 'education-form' %}" class="card-link stretched-link"></a>
+            </div>
+        </div>
+        <div class="card shadow p-3 mx-2 my-4">
+            <h3 class="card-title">Work Experience</h3>
+            <div class="card-body">
+                <a href="{% url 'workexp-form' %}" class="card-link stretched-link"></a>
+            </div>
+        </div>
+        <div class="card shadow p-3 mx-2 my-4">
+            <h3 class="card-title">Professional Skills</h3>
+            <div class="card-body">
+                <a href="{% url 'skills-form' %}" class="card-link stretched-link"></a>
+            </div>
+        </div>
+        <div class="card shadow p-3 mx-2 my-4">
+            <h3 class="card-title">Interests</h3>
+            <div class="card-body">
+                <a href="{% url 'interest-form' %}" class="card-link stretched-link"></a>
+            </div>
+        </div>
+        <br>
+        <a href="{% url 'resume' %}" class="btn btn-outline-theme ml-3">Generate Resume</a>
+    </div>
 {% endblock content %}
