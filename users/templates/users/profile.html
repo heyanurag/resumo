@@ -2,12 +2,10 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="container-lg">
-        <div class="create-resume shadow-sm">
+        <div class="register shadow">
             <form method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
-                    <h3>Educational Details</h3>
-                    <p class="instruction">Your Latest Educational Qualification</p>
                     {{ form|crispy }}
                 </fieldset>
                 <div class="form-group">

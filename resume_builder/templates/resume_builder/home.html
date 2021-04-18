@@ -1,3 +1,65 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="landing-page row">
+        <div class="col-12 col-md-4 text-center">
+            <img src="https://i.imgur.com/30xIq8r.png">
+        </div>
+        <div class="col-12 col-md-8 row">
+            <div class="col-md-2"></div>
+            <div class="col-lg-7 col-md-6 py-5">
+                <h2 class="my-4">Create a decent Resume for you next Job Interview in just a few steps</h2>
+                <a href="{% url 'create' %}" class="btn btn-outline-theme my-2">Create A Resume</a>
+            </div>
+            <div class="col-lg-3 col-md-4"></div>
+        </div>
+    </div>
+    <div class="container-lg home">
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mx-auto">
+                <div class="icon-box">
+                    <div class="icon">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4>Create A Profile</h4>
+                    <p>The first step towards creating your resume is to add in some personal information like Email, LinkedIn, Phone Number, etc.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mx-auto">
+                <div class="icon-box">
+                    <div class="icon">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                    </div>
+                    <h4>Add Education Details</h4>
+                    <p>Your qualifications holds a strong position in your resume since a lot of companies prefer a good educational background.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mx-auto">
+                <div class="icon-box">
+                    <div class="icon">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4>Fill in your Experiences</h4>
+                    <p>You are already a step ahead if you hve worked in the industry before. Internships and Work Experiences are worth mentioning.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mx-auto">
+                <div class="icon-box">
+                    <div class="icon">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4>Showcase your skills</h4>
+                    <p>Your Top 3 Skills are the most important assets for any company. Make sure you don't forget to add those to stand a little ahead.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mx-auto">
+                <div class="icon-box">
+                    <div class="icon">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                    </div>
+                    <h4>Add in your Interests</h4>
+                    <p>Your Interests or Hobbies are something which define you as a person. This will help the recruiter to analyse your capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}

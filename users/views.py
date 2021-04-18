@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegistrationForm, UserUpdateForm, ProfileCreationForm, ProfileUpdateForm
 from django.contrib import messages
 
 
@@ -18,6 +18,22 @@ def register(request):
         'form': form
     }
     return render(request, 'users/register.html', context)
+
+
+def profile(request):
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('create')
+    else:
+        form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'title': 'Profile',
+        'form': form
+    }
+    return render(request, 'users/profile.html', context)
 
 
 def account(request):

@@ -3,7 +3,7 @@ from .models import Education, WorkExperience, ProfessionalSkills, Interest
 from .forms import EducationForm, WorkExperienceForm, ProfessionalSkillsForm, InterestForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 
@@ -77,10 +77,10 @@ def about(request):
 
 def resume(request):
     context = {
-        'workexp': WorkExperience.objects.filter(person=request.user).first(),
-        'skills': ProfessionalSkills.objects.filter(person=request.user).first(),
-        'education': Education.objects.filter(person=request.user).first(),
-        'interest': Interest.objects.filter(person=request.user).first(),
-        'title': 'Resume'
+        'workexp': WorkExperience.objects.filter(person=request.user).order_by('-modify_date').first(),
+        'skills': ProfessionalSkills.objects.filter(person=request.user).order_by('-modify_date').first(),
+        'education': Education.objects.filter(person=request.user).order_by('-modify_date').first(),
+        'interest': Interest.objects.filter(person=request.user).order_by('-modify_date').first(),
+        'title':  request.user.first_name + " " + request.user.last_name + "'s " + 'Resume'
     }
     return render(request, 'resume_builder/resume.html', context)

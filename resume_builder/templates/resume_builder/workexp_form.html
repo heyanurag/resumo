@@ -1,29 +1,31 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="create-resume shadow-sm">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <h3>Work Experience</h3>
-                <div>
-                    <p class="instruction">Your most recent work experience</p>
-                    {{ form.title1|as_crispy_field }}
-                    {{ form.start_date1|as_crispy_field }}
-                    {{ form.end_date1|as_crispy_field }}
-                    {{ form.description1|as_crispy_field }}
+    <div class="container-lg">
+        <div class="create-resume shadow-sm">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <h3>Work Experience</h3>
+                    <div>
+                        <p class="instruction">Your most recent work experience</p>
+                        {{ form.title1|as_crispy_field }}
+                        {{ form.start_date1|as_crispy_field }}
+                        {{ form.end_date1|as_crispy_field }}
+                        {{ form.description1|as_crispy_field }}
+                    </div>
+                    <div>
+                        <p class="instruction">Another Notable Work Experience</p>
+                        {{ form.title2|as_crispy_field }}
+                        {{ form.start_date2|as_crispy_field }}
+                        {{ form.end_date2|as_crispy_field }}
+                        {{ form.description2|as_crispy_field }}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-theme">Submit</button>
                 </div>
-                <div>
-                    <p class="instruction">Another Notable Work Experience</p>
-                    {{ form.title2|as_crispy_field }}
-                    {{ form.start_date2|as_crispy_field }}
-                    {{ form.end_date2|as_crispy_field }}
-                    {{ form.description2|as_crispy_field }}
-                </div>
-            </fieldset>
-            <div class="form-group">
-                <button type="submit" class="btn btn-outline-theme">Submit</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 {% endblock content %}

@@ -1,6 +1,9 @@
 body {
     background-color: #f4f4f4;
     color: #4f4f4f;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    position: relative;
 }
 
 .app {
@@ -149,8 +152,58 @@ nav.navbar .navbar-nav .nav-item:hover .nav-link {
     padding: 25px;
 }
 
+.about {
+    font-size: 1.1em
+}
+
+.about em {
+    text-decoration: underline;
+}
+
+.landing-page {
+    margin-top: -25px;
+    padding: 25px;
+    background: linear-gradient(180deg, #ffffff, #ffffff, #ffffff, #ffffff, #f4f4f4, #f4f4f4);
+}
+
+.landing-page img {
+    width: 80%;
+    height: auto;
+}
+
+.landing-page a.btn {
+    border-radius: 100px;
+}
+
+.home svg {
+    width: 25%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #171820;
+    color: #f4f4f4;
+    position: absolute;
+    bottom: 0;
+    height: 55px;
+    width: 100%;
+}
+
 @media print {
     .noPrint {
         display: none;
+    }
+
+    #resume .left {
+        max-width: 30%;
+    }
+
+    #resume .left p {
+        max-width: 230px;
+    }
+
+    #resume .right {
+        max-width: 70%;
     }
 }

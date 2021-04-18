@@ -9,6 +9,7 @@ class Education(models.Model):
     starting_year = models.IntegerField()
     passing_year = models.IntegerField()
     cgpa = models.FloatField()
+    modify_date = models.DateTimeField(auto_now_add=True)
     person = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
@@ -21,6 +22,7 @@ class WorkExperience(models.Model):
     start_date2 = models.TextField(max_length=15, blank=True)
     end_date2 = models.TextField(max_length=15, blank=True)
     description2 = models.TextField(blank=True)
+    modify_date = models.DateTimeField(auto_now_add=True, blank=True)
     person = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
@@ -28,6 +30,7 @@ class ProfessionalSkills(models.Model):
     skill1 = models.CharField(max_length=100)
     skill2 = models.CharField(max_length=100, blank=True)
     skill3 = models.CharField(max_length=100,blank=True)
+    modify_date = models.DateTimeField(auto_now_add=True)
     person = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
@@ -35,4 +38,5 @@ class Interest(models.Model):
     interest1 = models.CharField(max_length=100)
     interest2 = models.CharField(max_length=100, blank=True)
     interest3 = models.CharField(max_length=100, blank=True)
+    modify_date = models.DateTimeField(auto_now_add=True)
     person = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -1,91 +1,132 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id="resume" class="row">
-        <section class="col-lg-3 col-md-4 col-sm-6 col-12 left">
-            <div class="personal">
-                <h2>Personal Details</h2><hr>
-                <p>
-                    <svg class="mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                    <b>Address:</b><br>
-                    {{ user.profile.address }}
-                </p>
-                <p>
-                    <svg class="mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    <b>Phone:</b>
-                    <br>
-                    {{ user.profile.phone }}
-                </p>
-                <p>
-                    <svg class="mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                    <b>Email:</b>
-                    <br>
-                    <a href="mailto:{{ user.email }}">{{ user.email }}</a>
-                </p>
-                <button onclick="window.print()" class="noPrint btn btn-outline-light">Download</button>
-                <p class="mt-1 mb-2 noPrint">Make sure you enable "Print Background"</p>
-            </div>
-        </section>
-        <section class="col-lg-9 col-md-8 col-sm-6 col-12 right">
-            <div class="professional px-2">
-                <div class="introduction">
-                    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+    <div class="container-fluid">
+        <div id="resume" class="row">
+            <section class="col-md-3 col-sm-6 col-12 left">
+                <div class="personal">
+                    <h2>Personal Details</h2><hr>
+                    <p>
+                        <svg class="mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        <b>Address:</b><br>
+                        {{ user.profile.address }}
+                    </p>
+                    <p>
+                        <svg class="mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <b>Phone:</b>
+                        <br>
+                        {{ user.profile.phone }}
+                    </p>
+                    <p>
+                        <svg class="mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                        <b>Email:</b>
+                        <br>
+                        <a href="mailto:{{ user.email }}" target="_blank">{{ user.email }}</a>
+                    </p>
+                    {% if user.profile.linkedin %}
+                        <p>
+                            <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 171 171" style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,171.98863v-171.98863h171.98863v171.98863z" fill="#171820"></path><g fill="#ffffff"><path d="M40.96875,21.375c-10.75795,0 -19.59375,8.8358 -19.59375,19.59375v89.0625c0,10.75794 8.8358,19.59375 19.59375,19.59375h89.0625c10.75794,0 19.59375,-8.83581 19.59375,-19.59375v-89.0625c0,-10.75795 -8.83581,-19.59375 -19.59375,-19.59375zM40.96875,32.0625h89.0625c4.98118,0 8.90625,3.92507 8.90625,8.90625v89.0625c0,4.98118 -3.92507,8.90625 -8.90625,8.90625h-89.0625c-4.98118,0 -8.90625,-3.92507 -8.90625,-8.90625v-89.0625c0,-4.98118 3.92507,-8.90625 8.90625,-8.90625zM55.21875,46.3125c-4.91879,0 -8.90625,3.98746 -8.90625,8.90625c0,4.91879 3.98746,8.90625 8.90625,8.90625c4.91879,0 8.90625,-3.98746 8.90625,-8.90625c0,-4.91879 -3.98746,-8.90625 -8.90625,-8.90625zM49.875,71.25c-1.97006,0 -3.5625,1.59244 -3.5625,3.5625v46.3125c0,1.97006 1.59244,3.5625 3.5625,3.5625h10.6875c1.97006,0 3.5625,-1.59244 3.5625,-3.5625v-46.3125c0,-1.97006 -1.59244,-3.5625 -3.5625,-3.5625zM74.8125,71.25c-1.97006,0 -3.5625,1.59244 -3.5625,3.5625v46.3125c0,1.97006 1.59244,3.5625 3.5625,3.5625h10.6875c1.97006,0 3.5625,-1.59244 3.5625,-3.5625v-26.71875c0,-4.91269 3.99356,-8.90625 8.90625,-8.90625c4.91269,0 8.90625,3.99356 8.90625,8.90625v26.71875c0,1.97006 1.59244,3.5625 3.5625,3.5625h10.6875c1.97006,0 3.5625,-1.59244 3.5625,-3.5625v-28.5c0,-11.78831 -9.58669,-21.375 -21.375,-21.375c-5.47912,0 -10.46306,2.08768 -14.25,5.48987v-1.92737c0,-1.97006 -1.59244,-3.5625 -3.5625,-3.5625z"></path></g><path d="" fill="none"></path></g></g></svg>
+                            <b>LinkedIn:</b>
+                            <br>
+                            <a href="{{ user.profile.linkedin }}" target="_blank">{{ user.profile.linkedin }}</a>
+                        </p>
+                    {% endif %}
+                    <button onclick="window.print()" class="noPrint btn btn-outline-light">Download</button>
+                    <p class="mt-1 mb-2 noPrint">Make sure you enable "Print Background"</p>
                 </div>
-                <div class="experience">
-                    <h2>WORK EXPERIENCE</h2>
-                    <h3>{{ workexp.title1 }}</h3>
-                    <p>
-                        {{ workexp.start_date1 }} - 
-                        {% if workexp.end_date1 %}
-                            {{ workexp.end_date1 }}
-                        {% else %}
-                            Now
-                        {% endif %}
-                    </p>
-                    <p>
-                        {{ workexp.description1 }}
-                    </p>
+            </section>
+            <section class="col-md-9 col-sm-6 col-12 right">
+                <div class="professional px-2">
+                    <div class="introduction">
+                        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                    </div>
+                    {% if workexp.title1 %}
+                        <div class="experience">
+                            <h2>WORK EXPERIENCE</h2>
+                            <h3>{{ workexp.title1 }}</h3>
+                            <small>
+                                <p class="d-inline">{{ workexp.start_date1 }} - </p>
+                                {% if workexp.end_date1 %}
+                                    <p class="d-inline">{{ workexp.end_date1 }}</p>
+                                {% else %}
+                                    <p class="px-2 py-1 d-inline bg-secondary rounded text-light">Now</p>
+                                {% endif %}
+                            </small>
+                            <p>
+                                {{ workexp.description1 }}
+                            </p>
 
-                    {% if workexp.title2 %}
-                    <h3>{{ workexp.title2 }}</h3>
-                    <p>
-                        {{ workexp.start_date2 }} - 
-                        {% if workexp.end_date2 %}
-                            {{ workexp.end_date2 }}
-                        {% else %}
-                            Now
-                        {% endif %}
-                    </p>
-                    <p>
-                        {{ workexp.description2 }}
-                    </p>
+                            {% if workexp.title2 %}
+                            <h3>{{ workexp.title2 }}</h3>
+                            <p>
+                                {{ workexp.start_date2 }} - 
+                                {% if workexp.end_date2 %}
+                                    {{ workexp.end_date2 }}
+                                {% else %}
+                                    Now
+                                {% endif %}
+                            </p>
+                            <p>
+                                {{ workexp.description2 }}
+                            </p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    {% if skills.skill1 %}
+                        <div class="skills">
+                            <h2>SKILLS</h2>
+                            <ol>
+                                <li>{{ skills.skill1 }}</li>
+                                
+                                {% if skills.skill2 %}
+                                    <li>{{ skills.skill2 }}</li>
+                                {% endif %}
+                                
+                                {% if skills.skill3 %}
+                                    <li>{{ skills.skill3 }}</li>
+                                {% endif %}
+                            </ol>
+                        </div>
+                    {% endif %}
+
+                    {% if education %}
+                        <div class="education">
+                            <h2>EDUCATION</h2>
+                            {% if education.starting_year %}
+                                <small>{{ education.starting_year }} - {{ education.passing_year }}</small>
+                            {% else %}
+                                <small>Currently</small>
+                            {% endif %}
+                            <p>
+                                {% if education.stream and education.degree %}
+                                    <span style="font-weight: 500;">{{ education.stream }} - </span>
+                                    {{ education.degree }}<br>
+                                {% endif %}
+                                {% if education.cgpa %}
+                                    <span style="font-weight: 500;">Score:</span> {{ education.cgpa }}
+                                {% endif %}
+                            </p>
+                        </div>
+                    {% endif %}
+
+                    {% if interest.interest1 %}
+                        <div class="interest">
+                            <h2>INTERESTS</h2>
+                            <ul>
+                                <li>{{ interest.interest1 }}</li>
+                                
+                                {% if interest.interest2 %}
+                                    <li>{{ interest.interest2 }}</li>
+                                {% endif %}
+                                
+                                {% if interest.interest2 %}
+                                    <li>{{ interest.interest3 }}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     {% endif %}
                 </div>
-                <div class="skills">
-                    <h2>SKILLS</h2>
-                    <ol>
-                        <li>{{ skills.skill1 }}</li>
-                        <li>{{ skills.skill2 }}</li>
-                        <li>{{ skills.skill3 }}</li>
-                    </ol>
-                </div>
-                <div class="education">
-                    <h2>EDUCATION</h2>
-                    <small>{{ education.starting_year }} - {{ education.passing_year }}</small>
-                    <p>
-                        <span style="font-weight: 500;">{{ education.stream }} - </span>
-                        {{ education.degree }}<br>
-                        <span style="font-weight: 500;">CGPI:</span> {{ education.cgpa }}
-                    </p>
-                </div>
-                <div class="interest">
-                    <h2>INTERESTS</h2>
-                    <ul>
-                        <li>{{ interest.interest1 }}</li>
-                        <li>{{ interest.interest2 }}</li>
-                        <li>{{ interest.interest3 }}</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 {% endblock content %}

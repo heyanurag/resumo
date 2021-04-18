@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="create-resume shadow-sm">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <h3>Professional Skills</h3>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button type="submit" class="btn btn-outline-theme">Submit</button>
-            </div>
-        </form>
+    <div class="container-lg">
+        <div class="create-resume shadow-sm">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <h3>Professional Skills</h3>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-theme">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock content %}
