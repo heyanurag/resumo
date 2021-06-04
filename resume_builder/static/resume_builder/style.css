@@ -198,6 +198,7 @@ footer {
 
     #resume .left {
         max-width: 30%;
+        -webkit-print-color-adjust: exact;
     }
 
     #resume .left p {
@@ -206,5 +207,6 @@ footer {
 
     #resume .right {
         max-width: 70%;
+        -webkit-print-color-adjust: exact;
     }
 }
