@@ -58,9 +58,9 @@
                             {% if workexp.title2 %}
                             <h3>{{ workexp.title2 }}</h3>
                             <p>
-                                {{ workexp.start_date2 }} - 
+                                <p class="d-inline">{{ workexp.start_date2 }} - </p> 
                                 {% if workexp.end_date2 %}
-                                    {{ workexp.end_date2 }}
+                                    <p class="d-inline">{{ workexp.end_date2 }}</p>
                                 {% else %}
                                     <p class="px-2 py-1 d-inline bg-secondary rounded text-light">Now</p>
                                 {% endif %}
